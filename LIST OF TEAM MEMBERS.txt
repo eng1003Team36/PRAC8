@@ -1,6 +1,7 @@
 LIST OF MEMBERS FOR TEAM 36
 
 RYAN TEO
+<<<<<<< HEAD
 
  
 Hello my name is ryan.
@@ -10,6 +11,15 @@ Role in project: (team leader, assignment uploader, programmer, etc)
 Preferred branch of engineering: (SOFTWARE)
 
 LIANG NIU
+=======
+LIANG NIU 
+GOOD PERSON
+MALE
+HEALTHY
+FISHING
+MARRIED
+NO KID
+>>>>>>> NIU-BRANCH
 
 BRENDAN HOLMES
 
