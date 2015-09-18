@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>Eng1003 Prac Week 5 - Card and Deck</title>
+	<style>
+		#outputArea{
+			padding: .25em;
+			border: solid black 2px;
+			margin: 3em;
+			
+			height: 20em;
+			width: 40em;
+			
+			overflow-y: scroll;
+			
+			font-family: arial "sans serif";
+			font-size: 1em;
+			color: rgb(50, 50, 250);
+			
+			background-color: rgb(225,225,225) ;
+			
+			float: left;
+		}
+		
+		p{
+			color: green;
+		}
+		
+	</style>
+
+	</head>
+	
+	<body>
+	<!-- 	-->
+		<div id="outputArea"></div>
+
+		<script>
+
+			var outputArea = document.getElementById("outputArea");
+			var outString = "";	
+
+			//exerciseCard(); 
+			exerciseDeck();
+			
+			outputArea.innerHTML = outString;	
+
+			
+			function exerciseCard(){
+				var card1 = new Card(4, 4); //try different parameter;
+				outString += card1.toString();
+			}
+			
+			 function exerciseDeck(){
+				var deck1 = new Deck();
+				
+				//deck1.shuffle();
+				
+				for (var i = 1; i <= 52; i++){
+					outString += deck1.deal(i) + "<br/>";
+				}
+				
+			 }
+			
+
+
+			//CONSTRUCTORS ============================================================
+				 
+			//CARD ====================================================================== 
+			function Card(initValue, initSuit){
+				//private variables
+				var value = initValue;		//integer value 1 - 13 inclusive
+				var suit = initSuit;				//integer value 1 - 4 inclusive
+				
+				//public methods
+				this.getValue = function(){
+					return value;
+				};
+				
+				this.setValue = function(newValue){
+					if (newValue >= 1 && newValue <= 13){
+						value = newValue;
+					}
+				};
+				
+                this.getSuit = function(){
+					return suit;
+				};
+				
+				this.setSuit = function(newSuit){
+					if (newSuit >= 1 && newSuit <= 4){
+						Suit = newSuit;
+					}
+				};
+				
+				this.toString = function(){
+					return "the " + getValueName(value) + " of " + getSuitName(suit);  
+				}
+				
+				//private helpers =====================================
+				var getValueName = function(value){
+					var valueLookup = ["", "ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king" ];
+					return valueLookup[value];
+				}
+				var getSuitName = function(suit){
+                    var suitLookup = ["", "spades", "hearts","diamonds", "clubs"];
+                    return suitLookup[suit];
+                }
+			}	
+
+
+			//DECK ====================================================================== 
+			
+			function Deck(){
+				//private variables
+				var cards = [];
+				var nextIndex; // I changed the nextIndex to the temCard ??
+				
+				//yor code to fill the deck here
+                nextIndex=1;
+               for (var suitIndex = 0; suitIndex <=4; suitIndex++){ 
+                  for (var valueIndex = 0; valueIndex <=52; valueIndex++){
+                    tempcard = new Card(valueIndex,suitIndex);
+                      cards[nextIndex]=tempcard;
+                      
+                      nextIndex++;
+                      }
+               }
+
+		      console.log(cards)
+				nextIndex = 1;
+				
+				this.shuffle = function(){
+					var card1Index, card2Index;
+					var tempCard;
+				
+					for (var i = 1; i <= 10000; i++){
+						card1Index = Math.floor((Math.random() * 52) + 1);
+						card2Index = Math.floor((Math.random() * 52) + 1);
+						
+						//swap 'em
+						tempCard = cards[card1Index];
+						cards[card1Index] = cards[card2Index] ;
+						cards[card2Index]  = tempCard;
+					}
+				
+				}
+				
+				this.deal = function(i){
+					return cards[i];
+                    //your code to deal a card here
+					
+				}
+			
+			}
+			
+		</script>
+	</body>
+</html>
