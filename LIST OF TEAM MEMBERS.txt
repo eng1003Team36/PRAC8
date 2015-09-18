@@ -1,6 +1,14 @@
 LIST OF MEMBERS FOR TEAM 36
 
 RYAN TEO
+
+ 
+Hello my name is ryan.
+ 
+Role in project: (team leader, assignment uploader, programmer, etc)
+ 
+Preferred branch of engineering: (SOFTWARE)
+
 LIANG NIU
 BRENDAN HOLMES
 HAMZAH BROWN
